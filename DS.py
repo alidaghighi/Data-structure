@@ -1,8 +1,27 @@
+
+
+"""
+We have Node class:
+    Data
+    next node
+    previous node
+"""
+
+
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
         self.prev = None
+
+"""
+Linked List:
+    add
+    remove
+    search
+    top:what is in the first)
+    show:printing the LinkedList
+"""
 
 
 class LinkedList:
@@ -34,14 +53,14 @@ class LinkedList:
         p.prev.next = p.next
         p.prev = tmp
 
-    def str(self):
-        s = ""
+    def show(self):
+        s = []
         p = self.head
         if p is not None:
             while p.next is not None:
-                s += p.data
+                s.append(str(p.data), "->")
                 p = p.next
-            s += p.data
+            s.append(str(p.data))
         return s
 
     def top(self):
@@ -58,7 +77,6 @@ class LinkedList:
 def heapify(a):
 
     n = len(a) - 1
-    # start at last parent and go left one node at a time
     for node in range(n/2, -1, -1):
         siftdown(a, node)
     return
@@ -68,7 +86,7 @@ def heapify(a):
 def push_heap(a, val):
 
     a.append(val)
-    siftup(a, len(a) - 1)   # furthest left node
+    siftup(a, len(a) - 1)
     return
 
 
@@ -87,10 +105,10 @@ def replace_key(a, node, newVal):
 
     curVal = a[node]
     a[node] = newVal
-    # increase key
+
     if newVal > curVal:
         siftup(a, node)
-    # decrease key
+
     elif newVal < curVal:
         siftdown(a, node)
     return
@@ -105,13 +123,12 @@ def swap(a, i, j):
 def siftdown(a, node):
 
     child = 2*node + 1
-    # base case, stop recursing when we hit the end of the heap
     if child > len(a) - 1:
         return
-    # check that second child exists; if so find max
+
     if (child + 1 <= len(a) - 1) and (a[child+1] > a[child]):
         child += 1
-    # preserves heap structure
+
     if a[node] < a[child]:
         swap(a, node, child)
         siftdown(a, child)
