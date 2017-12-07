@@ -69,84 +69,79 @@ class LinkedList:
         s += p.data
         return s
 
-"""From here"""
-'''we have definition of MaxHeap!'''
-##########################################################
+"""
+MaxHeap:
+    public:
+        push
+        peek(Root of MaxHeap tree)
+        pop
+    private:
+        __swap
+        __floatUp
+        __bubbleDown
+
+"""
 
 
-def heapify(a):
+class MaxHeap:
+    def __init__(self, items=[]):
+        super().__init__()
+        self.heap = [0]
+        for i in items:
+            self.heap.append(i)
+            self.__floatUp(len(self.heap) - 1)
 
-    n = len(a) - 1
-    for node in range(n/2, -1, -1):
-        siftdown(a, node)
-    return
+    def push(self, data):
+        self.heap.append(data)
+        self.__floatUp(len(self.heap) - 1)
 
+    def peek(self):
+        if self.heap[1]:
+            return self.heap[1]
+        else:
+            return False
 
-# runs in log(n) time
-def push_heap(a, val):
+    def pop(self):
+        if len(self.heap) > 2:
+            self.__swap(1, len(self.heap) - 1)
+            m = self.heap.pop()
+            self.__bubbledown(1)
 
-    a.append(val)
-    siftup(a, len(a) - 1)
-    return
+        elif len(self.heap) is 2:
+            m = self.heap.pop()
 
+        else:
+            m = False
 
-# runs in log(n) time
-def pop_heap(a):
+        return m
 
-    n = len(a) - 1
-    swap(a, 0, n)
-    maximum = a.pop(n)
-    siftdown(a, 0)
-    return maximum
+    def __swap(self, i, j):
+        self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
 
+    def __floatUp(self, index):
+        parent = index // 2
+        if index <= 1:
+            return
+        elif self.heap[index] > self.hap[parent]:
+            self.__swap(index, parent)
+            self.__floatUp(parent)
 
-# runs in log(n) time
-def replace_key(a, node, newVal):
-
-    curVal = a[node]
-    a[node] = newVal
-
-    if newVal > curVal:
-        siftup(a, node)
-
-    elif newVal < curVal:
-        siftdown(a, node)
-    return
-
-
-def swap(a, i, j):
-    a[i], a[j] = a[j], a[i]
-    return
-
-
-# runs in log(n) time
-def siftdown(a, node):
-
-    child = 2*node + 1
-    if child > len(a) - 1:
-        return
-
-    if (child + 1 <= len(a) - 1) and (a[child+1] > a[child]):
-        child += 1
-
-    if a[node] < a[child]:
-        swap(a, node, child)
-        siftdown(a, child)
-    else:
-        return
+    def __bubbleDown(self, index):
+        left = index * 2
+        right = index * 2 + 1
+        largest = index
+        if len(self.heap) > left and self.heap[largest] < self.heap[left]:
+            largest = left
+        if len(self.heap) > right and self.heap[largest] < self.heap[right]:
+            largest = right
+        if largest != index:
+            self.__swap(index, largest)
+            self.__bubbleDown(largest)
 
 
-# runs in log(n) time
-def siftup(a, node):
 
-    parent = (node - 1)/2
-    if a[parent] < a[node]:
-        swap(a, node, parent)
 
-    if parent <= 0:
-        return
-    else:
-        siftup(a, parent)
+
 
 
 
