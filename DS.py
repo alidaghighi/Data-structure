@@ -9,7 +9,7 @@ We have Node class:
 
 
 class Node:
-    def __init__(self, data):
+    def __init__(self, data=[None, 0]):
         self.data = data
         self.next = None
         self.prev = None
@@ -76,9 +76,9 @@ MaxHeap:
         peek(Root of MaxHeap tree)
         pop
     private:
-        __swap
-        __floatUp
-        __bubbleDown
+        __swap (swap nodes)
+        __floatUp (nodes are going to their right place from bottom)
+        __bubbleDown ( nodes are going to their right place from peek)
 
 """
 
