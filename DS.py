@@ -13,6 +13,7 @@ class Node:
         self.data = data
         self.next = None
         self.prev = None
+        self.child = None
 
 """
 Linked List:
@@ -43,6 +44,8 @@ class LinkedList:
             while p.next is not None:
                 if p.data is k:
                     return p
+                elif p.data is not k and p.hasChild():
+                    return self.search(p.data, k)
                 p = p.next
             if p.data is k:
                 return p
@@ -69,6 +72,12 @@ class LinkedList:
         s += p.data
         return s
 
+    def hasChild(self):
+        if self.data[1] is 0:
+            return None
+        else:
+            return True
+
 """
 MaxHeap:
     public:
@@ -84,7 +93,7 @@ MaxHeap:
 
 
 class MaxHeap:
-    def __init__(self, items=[]):
+    def __init__(self, items):
         super().__init__()
         self.heap = [0]
         for i in items:
