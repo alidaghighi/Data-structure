@@ -3,10 +3,9 @@ Main files
 """
 from DS import LinkedList
 
-l = LinkedList
+l = LinkedList()
 
-l.add(['S1', 0])
-l.add(['S2', 0])
-l.add([[['S2', 0]], 1])
+l.add(data='S1')
+l.add(data='S2')
 
-l.show()
+print(l.show())

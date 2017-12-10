@@ -9,7 +9,7 @@ We have Node class:
 
 
 class Node:
-    def __init__(self, data=[None, 0]):
+    def __init__(self, data):
         self.data = data
         self.next = None
         self.prev = None
@@ -61,7 +61,8 @@ class LinkedList:
         p = self.head
         if p is not None:
             while p.next is not None:
-                s.append(str(p.data), "->")
+                s.append(str(p.data))
+                s.append('->')
                 p = p.next
             s.append(str(p.data))
         return s
