@@ -57,14 +57,13 @@ class LinkedList:
         p.prev = tmp
 
     def show(self):
-        s = []
+        s = ""
         p = self.head
         if p is not None:
             while p.next is not None:
-                s.append(str(p.data))
-                s.append('->')
+                s += str(p.data) + " -> "
                 p = p.next
-            s.append(str(p.data))
+            s += str(p.data)
         return s
 
     def top(self):
