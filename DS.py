@@ -29,7 +29,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def add(self, data):
+    def add(self, data, child=None):
         node = Node(data)
         if self.head is None:
             self.head = node
@@ -37,6 +37,8 @@ class LinkedList:
             node.next = self.head
             node.next.prev = node
             self.head = node
+        if child is not None:
+            self.head.child = child
 
     def search(self, k):
         p = self.head
@@ -44,8 +46,8 @@ class LinkedList:
             while p.next is not None:
                 if p.data is k:
                     return p
-                elif p.data is not k and p.hasChild():
-                    return self.search(p.data, k)
+                elif p.data is not k and p.child is None:
+                    return p.child.search(p.child.data, k)
                 p = p.next
             if p.data is k:
                 return p
@@ -62,21 +64,18 @@ class LinkedList:
         if p is not None:
             while p.next is not None:
                 s += str(p.data) + " -> "
+
                 p = p.next
             s += str(p.data)
-        return s
 
-    def top(self):
-        s = ""
-        p = self.head
-        s += p.data
         return s
-
+    """
     def hasChild(self):
         if self.data[1] is 0:
             return None
         else:
             return True
+    """
 
 """
 MaxHeap:
