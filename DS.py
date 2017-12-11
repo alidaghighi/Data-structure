@@ -46,11 +46,11 @@ class LinkedList:
             while p.next is not None:
                 if p.data is k:
                     return p
-                elif p.data is not k and p.child is None:
-                    return p.child.search(p.child.data, k)
+                elif p.data is not k and p.child is not None:
+                    return p.child.search(k)
                 p = p.next
             if p.data is k:
-                return p
+                return True
         return None
 
     def remove(self, p):
