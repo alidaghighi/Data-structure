@@ -50,7 +50,7 @@ class LinkedList:
                     return p.child.search(k)
                 p = p.next
             if p.data is k:
-                return True
+                return p
         return None
 
     def remove(self, p):
@@ -59,15 +59,16 @@ class LinkedList:
         p.prev = tmp
 
     def show(self):
-        s = ""
+        s = []
         p = self.head
         if p is not None:
             while p.next is not None:
-                s += str(p.data) + " -> "
-
+                s.append(str(p.data))
+                break
+                if p.child is not None:
+                    s.append(p.child.show())
                 p = p.next
-            s += str(p.data)
-
+            s.append(str(p.data))
         return s
     """
     def hasChild(self):
@@ -147,10 +148,12 @@ class MaxHeap:
             self.__bubbleDown(largest)
 
 
+class stack:
+    def __init__(self):
+        self.A = []
 
+    def add(self, k):
+        self.A.append(k)
 
-
-
-
-
-
+    def remove(self):
+        return self.A.pop()
