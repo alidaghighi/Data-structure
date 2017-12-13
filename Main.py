@@ -1,21 +1,39 @@
 """
 Main files
 """
-from DS import LinkedList
+from DS import LinkedList, MaxHeap
 
-l = LinkedList()
-l1 = LinkedList()
-l2 = LinkedList()
-l.add(data='S1')
-l.add(data='S2', child=l1)
-l.add(data='S3')
-l.add(data='S4')
-l.add(data='S5')
-l1.add(data='S21')
-l1.add(data='S22')
-l1.add(data='S23')
+services = LinkedList()
+order = MaxHeap
 
-a = (l.search('S22'))
-print(a)
-print(l.show())
+while True:
+    inputList = []
+    _input = input(
+        "For add service send 1"
+        "For add subservice send 2"
+        "For add offer send 3"
+        "For delete service send 4"
+        "For add agency send 5"
+        "For see lists send 6"
+        "For order send 7"
+        "########################################"
+    )
+    print("########################################")
+    inputList.append(_input)
 
+    if inputList[0] is "1":
+        services.add(input("Enter your service"))
+        print("########################################")
+    elif inputList[0] is "2":
+        print("send your service that you want to add subservice")
+        serviceM = input("") # serviceM yani service e mafoul!
+        print("send your subservice")
+        subM = input("")
+        serviceM = services.search(serviceM)
+        if serviceM is not None:
+            serviceM.child.add(subM)
+        else:
+            serviceM.child = LinkedList()
+            serviceM.child.add(subM)
+    elif inputList[0] is "3":
+        print("")

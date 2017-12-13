@@ -37,6 +37,7 @@ class LinkedList:
             node.next = self.head
             node.next.prev = node
             self.head = node
+
         if child is not None:
             self.head.child = child
 
@@ -59,24 +60,16 @@ class LinkedList:
         p.prev = tmp
 
     def show(self):
-        s = []
+        s = ""
         p = self.head
         if p is not None:
             while p.next is not None:
-                s.append(str(p.data))
-                break
+                s += (str(p.data))
                 if p.child is not None:
-                    s.append(p.child.show())
+                    s += (p.child.show())
                 p = p.next
-            s.append(str(p.data))
+            s += (str(p.data))
         return s
-    """
-    def hasChild(self):
-        if self.data[1] is 0:
-            return None
-        else:
-            return True
-    """
 
 """
 MaxHeap:
