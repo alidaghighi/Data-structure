@@ -140,6 +140,9 @@ class MaxHeap:
             self.__swap(index, largest)
             self.__bubbleDown(largest)
 
+    def getFlag(self):
+        return self.heap[len(self.heap) - 1]
+
 
 class stack:
     def __init__(self):

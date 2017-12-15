@@ -37,3 +37,11 @@ while True:
             serviceM.child.add(subM)
     elif inputList[0] is "3":
         print("")
+    elif inputList[0] is "4":
+        services.remove(input("Enter your service name"))
+    elif inputList[0] is "5":
+        print("")
+    elif inputList[0] is "6":
+        print("")
+    elif inputList[0] is "7":
+        print("")
