@@ -142,6 +142,7 @@ class MaxHeap:
 
     def getFlag(self):
         return self.heap[len(self.heap) - 1]
+    
 
 
 class stack:
