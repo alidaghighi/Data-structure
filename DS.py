@@ -9,11 +9,28 @@ We have Node class:
 
 
 class Node:
-    def __init__(self, data):
-        self.data = data
+    def __init__(self, service,
+                 car_model=None,
+                 costumer_description=None,
+                 agency_description=None,
+                 price=None
+                 ):
+        self.data = service
         self.next = None
         self.prev = None
         self.child = None
+        self.car_model = car_model
+        self.costumer_description = costumer_description
+        self.agency_description = agency_description
+        self.price = price
+
+    def __init__(self, agency_name=None
+                 ):
+        self.agency_name = agency_name
+        self.next = None
+        self.prev = None
+        self.orders = MaxHeap()
+
 
 """
 Linked List:
@@ -144,8 +161,7 @@ class MaxHeap:
         return self.heap[len(self.heap) - 1]
     
 
-
-class stack:
+class Stack:
     def __init__(self):
         self.A = []
 
