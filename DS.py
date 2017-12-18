@@ -90,9 +90,9 @@ MaxHeap:
         peek(Root of MaxHeap tree)
         pop
     private:
-        __swap (swap nodes)
-        __floatUp (nodes are going to their right place from bottom)
-        __bubbleDown ( nodes are going to their right place from peek)
+        swap (swap nodes)
+        float_up (nodes are going to their right place from bottom)
+        bubble_down ( nodes are going to their right place from peek)
 
 """
 
@@ -103,11 +103,11 @@ class MaxHeap:
         self.heap = [0]
         for i in items:
             self.heap.append(i)
-            self.__floatUp(len(self.heap) - 1)
+            self.float_up(len(self.heap) - 1)
 
     def push(self, data):
         self.heap.append(data)
-        self.__floatUp(len(self.heap) - 1)
+        self.float_up(len(self.heap) - 1)
 
     def peek(self):
         if self.heap[1]:
@@ -117,9 +117,9 @@ class MaxHeap:
 
     def pop(self):
         if len(self.heap) > 2:
-            self.__swap(1, len(self.heap) - 1)
+            self.swap(1, len(self.heap) - 1)
             m = self.heap.pop()
-            self.__bubbledown(1)
+            self.bubble_down(1)
 
         elif len(self.heap) is 2:
             m = self.heap.pop()
@@ -129,18 +129,18 @@ class MaxHeap:
 
         return m
 
-    def __swap(self, i, j):
+    def swap(self, i, j):
         self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
 
-    def __floatUp(self, index):
+    def float_up(self, index):
         parent = index // 2
         if index <= 1:
             return
-        elif self.heap[index] > self.hap[parent]:
-            self.__swap(index, parent)
-            self.__floatUp(parent)
+        elif self.heap[index] > self.heap[parent]:
+            self.swap(index, parent)
+            self.float_up(parent)
 
-    def __bubbleDown(self, index):
+    def bubble_down(self, index):
         left = index * 2
         right = index * 2 + 1
         largest = index
@@ -149,11 +149,12 @@ class MaxHeap:
         if len(self.heap) > right and self.heap[largest] < self.heap[right]:
             largest = right
         if largest != index:
-            self.__swap(index, largest)
-            self.__bubbleDown(largest)
+            self.swap(index, largest)
+            self.bubble_down(largest)
 
-    def getFlag(self):
+    def get_flag(self):
         return self.heap[len(self.heap) - 1]
+
 
 class Hash:
     def __init__(self, service_name, priority):
