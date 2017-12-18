@@ -2,7 +2,6 @@
 Main files
 """
 from DS import LinkedList, MaxHeap
-import os
 
 order = MaxHeap
 agencies = LinkedList()
@@ -21,26 +20,24 @@ while True:
             print("Wrong!")
         elif 'EXIT' in inp[0]:
             break
-        elif inp[0] == 'CLEAR':
-            clear = lambda: os.system('clear')
         elif 'HELP' in inp[0]:
             print(30 * ' ' + 20 * '*')
-            print('1. add an agency : \n -> add agency <agency_name>\n', 30 * ' ' + 20 * '*')
-            print('2. add a service : \n -> add agency <service_name>\n', 30 * ' ' + 20 * '*')
-            print('3. add a subservice to a service : \n -> add subservice <subservice_name> to <service_name>\n',
+            print('add an agency : \n -> add agency <agency_name>\n', 30 * ' ' + 20 * '*')
+            print('add a service : \n -> add agency <service_name>\n', 30 * ' ' + 20 * '*')
+            print('add a subservice to a service : \n -> add subservice <subservice_name> to <service_name>\n',
                   30 * ' ' + 20 * '*')
-            print('4. add a service to an agency : \n -> add offer <service_name> to <agency_name>\n',
+            print('add a service to an agency : \n -> add offer <service_name> to <agency_name>\n',
                   30 * ' ' + 20 * '*')
-            print('5. list all available services : \n -> list services\n', 30 * ' ' + 20 * '*')
-            print('6. list all services of a particular service : \n -> list services from <service_name>\n',
+            print('list all available services : \n -> list services\n', 30 * ' ' + 20 * '*')
+            print('list all services of a particular service : \n -> list services from <service_name>\n',
                   30 * ' ' + 20 * '*')
-            print('7. list all agencies : \n -> list agencies\n', 30 * ' ' + 20 * '*')
-            print('8. list all requests from an agency : \n -> list orders of <agency_name>\n', 30 * ' ' + 20 * '*')
-            print('9. delete a service from an agency : \n -> delete <service_name> from <agency_name>\n',
+            print('list all agencies : \n -> list agencies\n', 30 * ' ' + 20 * '*')
+            print('list all requests from an agency : \n -> list orders of <agency_name>\n', 30 * ' ' + 20 * '*')
+            print('delete a service from an agency : \n -> delete <service_name> from <agency_name>\n',
                   30 * ' ' + 20 * '*')
-            print('10. send a request for a service from an agency : \n -> order <service_name> from <agency_name> by '
+            print('send a request for a service from an agency : \n -> order <service_name> from <agency_name> by '
                   '<customer_name> with <immediacy_level> priority\n', 30 * ' ' + 20 * '*')
-            print('11. priority levels; choose one of them for sending request :\n\t1. high\n\t2. normal\n\t3. low')
+            print('priority levels; choose one of them for sending request :\n\t1. high\n\t2. normal\n\t3. low')
 
         elif inp[0] == 'add':
 
