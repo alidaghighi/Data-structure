@@ -156,10 +156,62 @@ class MaxHeap:
         return self.heap[len(self.heap) - 1]
 
 
-class Hash:
-    def __init__(self, service_name, priority):
-        self.service_name = service_name
-        self.priority = priority
-
-    def __hash__(self):
-        return
+def _hash(_string):
+    s = ''
+    for i in _string:
+        print(i)
+        if i in '':
+            s += '00'
+        elif i in 'A':
+            s += '01'
+        elif i in 'B':
+            s += '02'
+        elif i in 'C':
+            s += '03'
+        elif i in 'D':
+            s += '04'
+        elif i in 'E':
+            s += '05'
+        elif i in 'F':
+            s += '06'
+        elif i in 'G':
+            s += '07'
+        elif i in 'H':
+            s += '08'
+        elif i in 'I':
+            s += '09'
+        elif i in 'J':
+            s += '10'
+        elif i in 'K':
+            s += '11'
+        elif i in 'L':
+            s += '12'
+        elif i in 'M':
+            s += '13'
+        elif i in 'N':
+            s += '14'
+        elif i in 'O':
+            s += '15'
+        elif i in 'P':
+            s += '16'
+        elif i in 'Q':
+            s += '17'
+        elif i in 'R':
+            s += '18'
+        elif i in 'S':
+            s += '19'
+        elif i in 'T':
+            s += '20'
+        elif i in 'U':
+            s += '21'
+        elif i in 'V':
+            s += '22'
+        elif i in 'W':
+            s += '24'
+        elif i in 'X':
+            s += '25'
+        elif i in 'Y':
+            s += '26'
+        elif i in 'Z':
+            s += '27'
+    return s
