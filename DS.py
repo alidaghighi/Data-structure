@@ -13,7 +13,8 @@ class Node:
                  car_model=None,
                  costumer_description=None,
                  agency_description=None,
-                 price=None
+                 price=None,
+                 agency_name=None
                  ):
         self.data = service
         self.next = None
@@ -23,13 +24,7 @@ class Node:
         self.costumer_description = costumer_description
         self.agency_description = agency_description
         self.price = price
-
-    def __init__(self, agency_name=None
-                 ):
         self.agency_name = agency_name
-        self.next = None
-        self.prev = None
-        self.orders = MaxHeap()
 
 
 """
