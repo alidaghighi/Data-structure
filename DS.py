@@ -154,3 +154,11 @@ class MaxHeap:
 
     def getFlag(self):
         return self.heap[len(self.heap) - 1]
+
+class Hash:
+    def __init__(self, service_name, priority):
+        self.service_name = service_name
+        self.priority = priority
+
+    def __hash__(self):
+        return
