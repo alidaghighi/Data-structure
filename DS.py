@@ -31,8 +31,10 @@ class Node:
         self.med_heap = MaxHeap()
         self.low_heap = MaxHeap()
 
-    def __init__(self, service_name, priority_level, customer_name, agency_name):
-        self.service = service_name
+
+class Node2:
+    def __init__(self, service_name=None, priority_level=None, customer_name=None, agency_name=None):
+        self.data = service_name
         self.customer = customer_name
         self.agency = agency_name
         self.priority = priority_level
@@ -140,7 +142,7 @@ class LinkedList:
         if agency is None:
             print('Err!')
 
-        p = Node(service_name, priority_level, customer_name, agency_name)
+        p = Node2(service_name, priority_level, customer_name, agency_name)
 
         if priority_level == 'high':
             agency.high_heap.push(p)
@@ -172,6 +174,12 @@ class LinkedList:
         while agency.low_hap.__len__() != 0:
             print(agency.low_hap.pop())
 
+    def list_agencies(self):
+        p = self.head
+        while p.next is not None:
+            print(p.data, p.agency_name)
+            p = p.next
+
 
 
 """
@@ -189,19 +197,18 @@ MaxHeap:
 
 
 class MaxHeap:
-    def __init__(self, items):
+    def __init__(self,):
         super().__init__()
         self.heap = [0]
-        for i in items:
-            self.heap.append(i)
-            self.float_up(len(self.heap) - 1)
 
     def __len__(self):
         return len(self.heap)
 
     def push(self, data):
-        self.heap.append(data)
-        self.float_up(len(self.heap) - 1)
+        for i in data:
+            self.heap.append(i)
+            self.float_up(len(self.heap) - 1)
+
 
     def peek(self):
         if self.heap[1]:
@@ -245,126 +252,3 @@ class MaxHeap:
         if largest != index:
             self.swap(index, largest)
             self.bubble_down(largest)
-
-"""
-def _encode(_string):
-    s = ''
-    for i in _string:
-        print(i)
-        if i in '':
-            s += '00 '
-        elif i in 'A':
-            s += '01 '
-        elif i in 'B':
-            s += '02 '
-        elif i in 'C':
-            s += '03 '
-        elif i in 'D':
-            s += '04 '
-        elif i in 'E':
-            s += '05 '
-        elif i in 'F':
-            s += '06 '
-        elif i in 'G':
-            s += '07 '
-        elif i in 'H':
-            s += '08 '
-        elif i in 'I':
-            s += '09 '
-        elif i in 'J':
-            s += '10 '
-        elif i in 'K':
-            s += '11 '
-        elif i in 'L':
-            s += '12 '
-        elif i in 'M':
-            s += '13 '
-        elif i in 'N':
-            s += '14 '
-        elif i in 'O':
-            s += '15 '
-        elif i in 'P':
-            s += '16 '
-        elif i in 'Q':
-            s += '17 '
-        elif i in 'R':
-            s += '18 '
-        elif i in 'S':
-            s += '19 '
-        elif i in 'T':
-            s += '20 '
-        elif i in 'U':
-            s += '21 '
-        elif i in 'V':
-            s += '22 '
-        elif i in 'W':
-            s += '23 '
-        elif i in 'X':
-            s += '24 '
-        elif i in 'Y':
-            s += '25 '
-        elif i in 'Z':
-            s += '26 '
-    return s
-
-
-def _decode(_string):
-    s = ''
-    splitted = _string.split()
-    for i in splitted:
-        if i in '00':
-            s += ''
-        elif i in '01':
-            s += 'A'
-        elif i in '02':
-            s += 'B'
-        elif i in '03':
-            s += 'C'
-        elif i in '04':
-            s += 'D'
-        elif i in '05':
-            s += 'E'
-        elif i in '06':
-            s += 'F'
-        elif i in '07':
-            s += 'G'
-        elif i in '08':
-            s += 'H'
-        elif i in '09':
-            s += 'I'
-        elif i in '10':
-            s += 'J'
-        elif i in '11':
-            s += 'K'
-        elif i in '12':
-            s += 'L'
-        elif i in '13':
-            s += 'M'
-        elif i in '14':
-            s += 'N'
-        elif i in '15':
-            s += 'O'
-        elif i in '16':
-            s += 'P'
-        elif i in '17':
-            s += 'Q'
-        elif i in '18':
-            s += 'R'
-        elif i in '19':
-            s += 'S'
-        elif i in '20':
-            s += 'T'
-        elif i in '21':
-            s += 'U'
-        elif i in '22':
-            s += 'V'
-        elif i in '23':
-            s += 'W'
-        elif i in '24':
-            s += 'X'
-        elif i in '25':
-            s += 'Y'
-        elif i in '26':
-            s += 'Z'
-    return s
-"""

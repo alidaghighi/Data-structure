@@ -42,11 +42,11 @@ while True:
         elif _input[0] == 'add':
 
             if _input[1] in 'service':
-                services.add_service(_input[2])
+                services.add(_input[2])
             elif _input[1] in 'subservice':
                 services.add_sub_service(_input[2], _input[4])
             elif _input[1] in 'agency':
-                agencies.add_agency(_input[2])
+                agencies.add(_input[2])
             elif _input[1] in 'offer':
                 agencies.add_offer(_input[2], _input[4])
             else:
