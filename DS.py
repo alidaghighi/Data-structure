@@ -39,11 +39,6 @@ class Node:
 
         self.time = time.time() * -1
 
-    def __str__(self):
-        print('- Customer "{}" has requested service "{}" from agency "{}" with "{}" priority'.format(
-            self.customer, self.service, self.agency, self.priority)
-        )
-
 
 """
 Linked List:
