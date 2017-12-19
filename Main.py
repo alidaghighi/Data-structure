@@ -31,7 +31,7 @@ while True:
             print("list all available services(It's not ready yet!) : \n -> list services\n", 30 * ' ' + 20 * '*')
             print("listAllServices of a particular service(It's not ready yet!)\n->list services from <service_name>\n",
                   30 * ' ' + 20 * '*')
-            print("list all agencies(It's not ready yet!) : \n -> list agencies\n", 30 * ' ' + 20 * '*')
+            print("list all agencies : \n -> list agencies\n", 30 * ' ' + 20 * '*')
             print('list all requests from an agency : \n -> list orders of <agency_name>\n', 30 * ' ' + 20 * '*')
             print('delete a service from an agency : \n -> delete <service_name> from <agency_name>\n',
                   30 * ' ' + 20 * '*')
@@ -56,7 +56,7 @@ while True:
             agencies.delete(_input[1], _input[3])
         elif _input[0] == 'list':
             if _input[1] in '‫‪agencies‬‬':
-                print("It's not ready yet!")
+                agencies.list_agencies()
             elif _input[1] in '‫‪services‬‬':
                 print("It's not ready yet!")
 
